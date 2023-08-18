@@ -1,6 +1,6 @@
 <h1>ProFTPD multi-arch image</h1>
 <img alt="ProFTPD" src="http://www.proftpd.org/proftpd.png">
-<p>This is an unofficial multi-aarch docker image of ProFTPD created for multiplatform support.This image creates a local FTP server to ficilitate client-side data transfer. Official Website: <a href="https://http://www.proftpd.org" rel="nofollow noopener">https://http://www.proftpd.org/</a>
+<p>This is an unofficial multi-aarch docker image of ProFTPD created for multiplatform support.This image creates a local FTP server to ficilitate client-side data transfer. Official Website: <a href="http://www.proftpd.org" rel="nofollow noopener">http://www.proftpd.org/</a>
 </p>
 <h2>The architectures supported by this image are:</h2>
 <table>
