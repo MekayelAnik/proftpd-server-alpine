@@ -34,7 +34,7 @@
   </tbody>
 </table>
 <h2>Version Tags</h2>
-<p>This image provides various versions that are available via tags. Please read the <a href="https://http://www.proftpd.org" rel="nofollow noopener">update information</a> carefully and exercise caution when using "older versions" tags as they tend to contain unfixed bugs. </p>
+<p>This image provides various versions that are available via tags. Please read the <a href="http://www.proftpd.org/" rel="nofollow noopener">update information</a> carefully and exercise caution when using "older versions" tags as they tend to contain unfixed bugs. </p>
 <table>
   <thead>
     <tr>
