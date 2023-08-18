@@ -1,7 +1,9 @@
 #!/bin/bash
 # Show Image Build Time
-BUILD_TIME=$(cat /build-timestamp)
-echo "This Image was build on: ${BUILD_TIME}"
+date +%c > /run-timestamp
+echo "This image was build on: $(cat /build-timestamp)"   
+# /usr/bin/banner.sh
+echo "This Container was started on: $(cat /run-timestamp)"
 # Check if Username & Password is set for Each FTP share
 if [ "${NUMBER_OF_SHARES}" -gt 1 ]; then
 # Create FTP User and assign Password, UID & GID from Environment variables for Multiple Users
@@ -37,7 +39,7 @@ else
     	    else
     	        addgroup -g "${FTP_USER_1_PGID}" "${FTP_USERNAME_1}"
 	        adduser --disabled-password --uid "${FTP_USER_1_PUID}" -G "${FTP_USERNAME_1}" -s /bin/sh -h /home/"${FTP_USERNAME_1}" "${FTP_USERNAME_1}"
-		echo "${FTP_USERNAME_1}:${FTP_USERNAME_1}" | chpasswd
+		echo "${FTP_USERNAME_1}:${FTP_PASSWORD_1}" | chpasswd
 		chown -R "${FTP_USERNAME_1}":"${FTP_USERNAME_1}" /home/"${FTP_USERNAME_1}"
 		fi
 fi

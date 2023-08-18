@@ -1,7 +1,6 @@
 # Use Alpine Linux
 ARG ALPINE_VERSION=latest
 FROM alpine:$ALPINE_VERSION
-ARG BUILD_TIME=$BUILD_TIME
 ARG TZ=Asia/Dhaka
 ARG FTP_GID=48 
 ARG FTP_UID=48
@@ -18,8 +17,8 @@ ENV ALLOW_OVERWRITE=on \
     FTP_PORT=21 \
     WRITE_ENABLE=AllowAll \
     NUMBER_OF_SHARES=1 \
-    FTP_USERNAME_1=test \
-    FTP_PASSWORD_1=test \
+    FTP_USERNAME_1=user1 \
+    FTP_PASSWORD_1=password1 \
     FTP_USER_1_PUID=1000 \
     FTP_USER_1_PGID=1000
 RUN set -x \
