@@ -5,6 +5,7 @@ ARG BUILD_TIME=$BUILD_TIME
 ARG TZ=Asia/Dhaka
 ARG FTP_GID=48 
 ARG FTP_UID=48
+RUN date +%c > /build-timestamp
 ENV ALLOW_OVERWRITE=on \
     ANONYMOUS_DISABLE=on \
     ANON_UPLOAD_ENABLE=DenyAll \
@@ -18,24 +19,23 @@ ENV ALLOW_OVERWRITE=on \
     WRITE_ENABLE=AllowAll \
     NUMBER_OF_SHARES=1 \
     FTP_USERNAME_1=test \
-    FTP_PASSWORD_1=test 
+    FTP_PASSWORD_1=test \
+    FTP_USER_1_PUID=1000 \
+    FTP_USER_1_PGID=1000
 RUN set -x \
    addgroup -g ${FTP_GID} ftp \
    adduser -H -h /run/proftpd -s /bin/false --uid ${FTP_UID} -g 'ftp daemon' ftp \
    addgroup ftp ftp \
   ;
 
-RUN apk add --update-cache --no-cache shadow proftpd openssl less bash tzdata
+RUN apk add --update --no-cache shadow proftpd openssl less bash tzdata
 
 RUN mkdir -p /run/proftpd
 COPY --chmod=555 proftpd.conf /etc/proftpd
 COPY --chmod=555 proftpd.sh /usr/bin
 COPY --chmod=555 proftpd.delay /run/proftpd
-
-
-RUN apk update &&\
-    apk upgrade &&\
-    rm -f /bin/netstat &&\
+RUN apk --update --no-cache upgrade && \
+    rm -f /bin/netstat && \
     rm -rf /var/cache/apk/*
 
 # FTP default port
