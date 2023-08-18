@@ -1,7 +1,3 @@
-# proftpd-server-alpine
-Multi-Aarch image of ProFTPD, a free, open-source, &amp; one of the most popular UNIX FTP servers today
-
-
 <h1>ProFTPD multi-arch image</h1>
 <img alt="ProFTPD" src="http://www.proftpd.org/proftpd.png">
 <p>This is an unofficial multi-aarch docker image of ProFTPD created for multiplatform support.This image creates a local FTP server to ficilitate client-side data transfer. Official Website: <a href="https://http://www.proftpd.org" rel="nofollow noopener">https://http://www.proftpd.org/</a>
@@ -38,7 +34,7 @@ Multi-Aarch image of ProFTPD, a free, open-source, &amp; one of the most popular
   </tbody>
 </table>
 <h2>Version Tags</h2>
-<p>This image provides various versions that are available via tags. Please read the <a href="https://www.ispyconnect.com/producthistory.aspx?productid=27" rel="nofollow noopener">update information</a> carefully and exercise caution when using "older versions" tags as they tend to contain unfixed bugs. </p>
+<p>This image provides various versions that are available via tags. Please read the <a href="https://http://www.proftpd.org" rel="nofollow noopener">update information</a> carefully and exercise caution when using "older versions" tags as they tend to contain unfixed bugs. </p>
 <table>
   <thead>
     <tr>
@@ -126,7 +122,7 @@ services:
   mekayelanik/proftpd-server-alpine:latest
 </code></pre>
 
-<h3>If anyone wishes to give dedicated Local IP to iSpy Agent DVR container using MACVLAN ( <a href="https://docs.docker.com/network/macvlan/" rel="nofollow noopener">click here for more info</a>) </h3>
+<h3>If anyone wishes to give dedicated Local IP to ProFTPD container using MACVLAN ( <a href="https://docs.docker.com/network/macvlan/" rel="nofollow noopener">click here for more info</a>) </h3>
 <pre><code>---
 version: "3.9"
 services:
