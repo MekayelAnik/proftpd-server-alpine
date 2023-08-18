@@ -4,6 +4,7 @@ FROM alpine:$ALPINE_VERSION
 ARG TZ=Asia/Dhaka
 ARG FTP_GID=48 
 ARG FTP_UID=48
+RUN date +%c > /build-timestamp
 ENV ALLOW_OVERWRITE=on \
     ANONYMOUS_DISABLE=on \
     ANON_UPLOAD_ENABLE=DenyAll \
@@ -18,9 +19,8 @@ ENV ALLOW_OVERWRITE=on \
     NUMBER_OF_SHARES=1 \
     FTP_USERNAME_1=user1 \
     FTP_PASSWORD_1=password1 \
-    TIMEOUT_IDLE=600 \
-    TIMEOUT_NO_TRANSFER=300 \
-    TIMEOUT_STALLED=3600
+    FTP_USER_1_PUID=1000 \
+    FTP_USER_1_PGID=1000
 RUN set -x \
    addgroup -g ${FTP_GID} ftp \
    adduser -H -h /run/proftpd -s /bin/false --uid ${FTP_UID} -g 'ftp daemon' ftp \
@@ -38,8 +38,17 @@ RUN apk --update --no-cache upgrade && \
     rm -f /bin/netstat && \
     rm -rf /var/cache/apk/*
 
+# FTP default port
+EXPOSE 21/tcp
+
 # Passive Ports 
 EXPOSE 4559-4564/tcp
+
+# Configuration volumes
+VOLUME ["/etc/proftpd", "/srv"]
+
+# Data volumes
+VOLUME ["/samba-shares"]
 
 ENTRYPOINT ["/usr/bin/proftpd.sh"]
 # Define service entrypoint
