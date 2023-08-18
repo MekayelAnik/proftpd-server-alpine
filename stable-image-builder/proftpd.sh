@@ -1,9 +1,10 @@
 #!/bin/bash
 # Show Image Build Time
-date +%c > /run-timestamp
-echo "This image was build on: $(cat /build-timestamp)"   
+echo "This image was build on: $(cat /usr/bin/build-timestamp)"   
 # /usr/bin/banner.sh
-echo "This Container was started on: $(cat /run-timestamp)"
+# Show Conatiner Start Time
+(date +%Z)
+echo "This Container was started on: $(date)"
 # Check if Username & Password is set for Each FTP share
 if [ "${NUMBER_OF_SHARES}" -gt 1 ]; then
 # Create FTP User and assign Password, UID & GID from Environment variables for Multiple Users
@@ -53,7 +54,7 @@ UseIPv6                 off\n
 WtmpLog                 off\n
 RootLogin               off\n
 UseReverseDNS           off\n
-AllowOverwrite          on\n
+AllowOverwrite          $ALLOW_OVERWRITE\n
 MaxInstances            $MAX_INSTANCES\n
 MaxClients              $MAX_CLIENTS\n
 PassivePorts            4559 4564\n
@@ -61,7 +62,10 @@ ServerName              $SERVER_NAME\n
 TimesGMT                $TIMES_GMT\n
 Umask                   $LOCAL_UMASK\n
 DefaultRoot             $LOCAL_ROOT\n
+TimeoutIdle             $TIMEOUT_IDLE\n
+TimeoutNoTransfer       $TIMEOUT_NO_TRANSFER\n
+TimeoutStalled          $TIMEOUT_STALLED\n
 <Limit WRITE>\n
-  AllowAll
+  AllowAll\n
 </Limit>"  > /etc/proftpd/proftpd.conf
 exec "$@"
