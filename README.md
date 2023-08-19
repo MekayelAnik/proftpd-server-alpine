@@ -69,27 +69,27 @@ services:
       - TZ=Asia/Dhaka
       - FTP_PORT=21
       - NUMBER_OF_SHARES=4
-      - FTP_USERNAME_1=USER_1
+      - FTP_SHARE_1=SHARE_1
       - FTP_PASSWORD_1=PASS_1
-      - FTP_USER_1_PUID=1001
-      - FTP_USER_1_PGID=1001
-      - FTP_USERNAME_2=USER_2
+      - FTP_SHARE_1_PUID=1001
+      - FTP_SHARE_1_PGID=1001
+      - FTP_SHARE_2=SHARE_2
       - FTP_PASSWORD_2=PASS_2
-      - FTP_USER_2_PUID=1002
-      - FTP_USER_2_PGID=1002
-      - FTP_USERNAME_3=USER_3
+      - FTP_SHARE_2_PUID=1002
+      - FTP_SHARE_2_PGID=1002
+      - FTP_SHARE_3=SHARE_3
       - FTP_PASSWORD_3=PASS_3
-      - FTP_USER_3_PUID=1003
-      - FTP_USER_3_PGID=1003
-      - FTP_USERNAME_4=USER_4
+      - FTP_SHARE_3_PUID=1003
+      - FTP_SHARE_3_PGID=1003
+      - FTP_SHARE_4=SHARE_4
       - FTP_PASSWORD_4=PASS_4
-      - FTP_USER_4_PUID=1004
-      - FTP_USER_4_PGID=1004
+      - FTP_SHARE_4_PUID=1004
+      - FTP_SHARE_4_PGID=1004
     volumes:
-      - /mnt/Vol1:/data/USER_1     
-      - /mnt/Vol1:/data/USER_2
-      - /mnt/Vol1:/data/USER_3
-      - /mnt/Vol1:/data/USER_4
+      - /mnt/Vol1:/data/SHARE_1     
+      - /mnt/Vol1:/data/SHARE_2
+      - /mnt/Vol1:/data/SHARE_3
+      - /mnt/Vol1:/data/SHARE_4
     restart: unless-stopped
 </code></pre>
 <h3>docker cli ( <a href="https://docs.docker.com/engine/reference/commandline/cli/" rel="nofollow noopener">click here for more info</a>) </h3>
@@ -98,26 +98,26 @@ services:
   -e TZ=Asia/Dhaka \
   -e FTP_PORT=21 \
   -e NUMBER_OF_SHARES=4 \
-  -e FTP_USERNAME_1=USER_1 \
+  -e FTP_SHARE_1=SHARE_1 \
   -e FTP_PASSWORD_1=PASS_1 \
-  -e FTP_USER_1_PUID=1001 \
-  -e FTP_USER_1_PGID=1001 \
-  -e FTP_USERNAME_2=USER_2 \
+  -e FTP_SHARE_1_PUID=1001 \
+  -e FTP_SHARE_1_PGID=1001 \
+  -e FTP_SHARE_2=SHARE_2 \
   -e FTP_PASSWORD_2=PASS_2 \
-  -e FTP_USER_2_PUID=1002 \
-  -e FTP_USER_2_PGID=1002 \
-  -e FTP_USERNAME_3=USER_3 \
+  -e FTP_SHARE_2_PUID=1002 \
+  -e FTP_SHARE_2_PGID=1002 \
+  -e FTP_SHARE_3=SHARE_3 \
   -e FTP_PASSWORD_3=PASS_3 \
-  -e FTP_USER_3_PUID=1003 \
-  -e FTP_USER_3_PGID=1003 \
-  -e FTP_USERNAME_4=USER_4 \
+  -e FTP_SHARE_3_PUID=1003 \
+  -e FTP_SHARE_3_PGID=1003 \
+  -e FTP_SHARE_4=SHARE_4 \
   -e FTP_PASSWORD_4=PASS_4 \
-  -e FTP_USER_4_PUID=1004 \
-  -e FTP_USER_4_PGID=1004 \
-  -v /mnt/Vol1:/data/USER_1 \
-  -v /mnt/Vol1:/data/USER_2 \
-  -v /mnt/Vol1:/data/USER_3 \
-  -v /mnt/Vol1:/data/USER_4 \
+  -e FTP_SHARE_4_PUID=1004 \
+  -e FTP_SHARE_4_PGID=1004 \
+  -v /mnt/Vol1:/data/SHARE_1 \
+  -v /mnt/Vol1:/data/SHARE_2 \
+  -v /mnt/Vol1:/data/SHARE_3 \
+  -v /mnt/Vol1:/data/SHARE_4 \
   --restart unless-stopped \
   mekayelanik/proftpd-server-alpine:latest
 </code></pre>
@@ -133,27 +133,27 @@ services:
       - TZ=Asia/Dhaka
       - FTP_PORT=21
       - NUMBER_OF_SHARES=4
-      - FTP_USERNAME_1=USER_1
+      - FTP_SHARE_1=SHARE_1
       - FTP_PASSWORD_1=PASS_1
-      - FTP_USER_1_PUID=1001
-      - FTP_USER_1_PGID=1001
-      - FTP_USERNAME_2=USER_2
+      - FTP_SHARE_1_PUID=1001
+      - FTP_SHARE_1_PGID=1001
+      - FTP_SHARE_2=SHARE_2
       - FTP_PASSWORD_2=PASS_2
-      - FTP_USER_2_PUID=1002
-      - FTP_USER_2_PGID=1002
-      - FTP_USERNAME_3=USER_3
+      - FTP_SHARE_2_PUID=1002
+      - FTP_SHARE_2_PGID=1002
+      - FTP_SHARE_3=SHARE_3
       - FTP_PASSWORD_3=PASS_3
-      - FTP_USER_3_PUID=1003
-      - FTP_USER_3_PGID=1003
-      - FTP_USERNAME_4=USER_4
+      - FTP_SHARE_3_PUID=1003
+      - FTP_SHARE_3_PGID=1003
+      - FTP_SHARE_4=SHARE_4
       - FTP_PASSWORD_4=PASS_4
-      - FTP_USER_4_PUID=1004
-      - FTP_USER_4_PGID=1004
+      - FTP_SHARE_4_PUID=1004
+      - FTP_SHARE_4_PGID=1004
     volumes:
-      - /mnt/Vol1:/data/USER_1     
-      - /mnt/Vol1:/data/USER_2
-      - /mnt/Vol1:/data/USER_3
-      - /mnt/Vol1:/data/USER_4
+      - /mnt/Vol1:/data/SHARE_1     
+      - /mnt/Vol1:/data/SHARE_2
+      - /mnt/Vol1:/data/SHARE_3
+      - /mnt/Vol1:/data/SHARE_4
     restart: unless-stopped
         hostname: proftpd-server
     domainname: local
