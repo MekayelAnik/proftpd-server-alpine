@@ -1,15 +1,9 @@
 # Use Alpine Linux
-ARG ALPINE_VERSION=edge
+ARG ALPINE_VERSION=latest
 FROM alpine:$ALPINE_VERSION
+ARG TZ=Asia/Dhaka
 ARG FTP_GID=48 
 ARG FTP_UID=48
-ARG TZ=Asia/Dhaka
-
-LABEL author="MUHAMMAD MEKAYEL ANIK"
-LABEL author_email="mekayel.anik@gmail.com"
-LABEL github_url="https://github.com/MekayelAnik/samba-server-alpine"
-LABEL licence="GPL-3.0"
-
 ENV ALLOW_OVERWRITE=on \
     ANONYMOUS_DISABLE=on \
     ANON_UPLOAD_ENABLE=DenyAll \
@@ -45,7 +39,9 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositori
     chmod 555 /etc/proftpd/proftpd.conf && \
     rm -rf /var/cache/apk/*
 
-ADD --chmod=555 ./scripts  /usr/bin
+COPY --chmod=555 proftpd.sh /usr/bin
+COPY --chmod=555 banner.sh /usr/bin
+COPY --chmod=444 build-timestamp /usr/bin
 
 # Passive Ports 
 EXPOSE 4559-4564/tcp
