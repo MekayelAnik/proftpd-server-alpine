@@ -22,32 +22,31 @@
 			else
 				FTP_UID=FTP_SHARE_${i}_PUID
 	                	FTP_GID=FTP_SHARE_${i}_PGID
+				FTP_CHMOD=FTP_SHARE_${i}_CHMOD
 					if [ -z "${!FTP_UID}" ] || [ -z "${!FTP_GID}" ] ; then
 						FTP_UID=$(( 1100 + i ))
 						FTP_GID=$FTP_UID
-                        			addgroup -g ${FTP_GID} ${!FTP_SHARE}
-						adduser -D -u ${FTP_UID} -G ${!FTP_SHARE} -s /bin/sh -h /data/"${!FTP_SHARE}" ${!FTP_SHARE}
-		        			echo "${!FTP_SHARE}:${!FTP_PASS}" | chpasswd
-						chown -R "${!FTP_SHARE}":"${!FTP_SHARE}" /data/"${!FTP_SHARE}"
+                        			addgroup -g "${FTP_GID}" "${!FTP_SHARE}"
+						adduser -D -u "${FTP_UID}" -G "${!FTP_SHARE}" -s /bin/sh -h /data/"${!FTP_SHARE}" "${!FTP_SHARE}"
 					elif [ -z "${!FTP_UID}" ] ; then
 						FTP_UID=${!FTP_GID}
-                        			addgroup -g ${!FTP_GID} ${!FTP_SHARE}
-						adduser -D -u ${FTP_UID} -G ${!FTP_SHARE} -s /bin/sh -h /data/"${!FTP_SHARE}" ${!FTP_SHARE}
-		        			echo "${!FTP_SHARE}:${!FTP_PASS}" | chpasswd
-						chown -R "${!FTP_SHARE}":"${!FTP_SHARE}" /data/"${!FTP_SHARE}"
+                        			addgroup -g "${!FTP_GID}" "${!FTP_SHARE}"
+						adduser -D -u "${FTP_UID}" -G "${!FTP_SHARE}" -s /bin/sh -h /data/"${!FTP_SHARE}" "${!FTP_SHARE}"
 					elif [ -z "${!FTP_GID}" ] ; then
 						FTP_GID=${!FTP_UID}
-                        			addgroup -g ${FTP_GID} ${!FTP_SHARE}
-						adduser -D -u ${!FTP_UID} -G ${!FTP_SHARE} -s /bin/sh -h /data/"${!FTP_SHARE}" ${!FTP_SHARE}
-		        			echo "${!FTP_SHARE}:${!FTP_PASS}" | chpasswd
-						chown -R "${!FTP_SHARE}":"${!FTP_SHARE}" /data/"${!FTP_SHARE}"
+                        			addgroup -g "${FTP_GID}" "${!FTP_SHARE}"
+						adduser -D -u "${!FTP_UID}" -G "${!FTP_SHARE}" -s /bin/sh -h /data/"${!FTP_SHARE}" "${!FTP_SHARE}"
 					else 
-						addgroup -g ${!FTP_GID} ${!FTP_SHARE}
-						adduser -D -u ${!FTP_UID} -G ${!FTP_SHARE} -s /bin/sh -h /data/"${!FTP_SHARE}" ${!FTP_SHARE}
-		        			echo "${!FTP_SHARE}:${!FTP_PASS}" | chpasswd
-						chown -R "${!FTP_SHARE}":"${!FTP_SHARE}" /data/"${!FTP_SHARE}"
+						addgroup -g "${!FTP_GID}" "${!FTP_SHARE}"
+						adduser -D -u "${!FTP_UID}" -G "${!FTP_SHARE}" -s /bin/sh -h /data/"${!FTP_SHARE}" "${!FTP_SHARE}"
 					fi
-
+					echo "${!FTP_SHARE}:${!FTP_PASS}" | chpasswd
+					chown -R "${!FTP_SHARE}":"${!FTP_SHARE}" /data/"${!FTP_SHARE}"
+					if [ -z "${!FTP_CHMOD}" ]; then
+						:
+					else
+						chmod -cR "${!FTP_CHMOD}" /data/"${!FTP_SHARE}"
+					fi
 			fi
 	done
 echo -e "Include /etc/proftpd/conf.d/*.conf\n
