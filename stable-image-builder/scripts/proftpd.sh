@@ -23,7 +23,7 @@
 				FTP_UID=FTP_SHARE_${i}_PUID
 	                	FTP_GID=FTP_SHARE_${i}_PGID
 				FTP_CHMOD=FTP_SHARE_${i}_CHMOD
-					if [ -z "${!FTP_UID}" ] || [ -z "${!FTP_GID}" ] ; then
+					if [ -z "${!FTP_UID}" ] && [ -z "${!FTP_GID}" ] ; then
 						FTP_UID=$(( 1100 + i ))
 						FTP_GID=$FTP_UID
                         			addgroup -g "${FTP_GID}" "${!FTP_SHARE}"

@@ -7,7 +7,7 @@
 	do
 		FTP_SHARE=FTP_SHARE_${i}
 		FTP_PASS=FTP_PASSWORD_${i}
-			if [ -z "${!FTP_SHARE}" ] || [ -z "${!FTP_PASS}" ] ; then
+			if [ -z "${!FTP_SHARE}" ] && [ -z "${!FTP_PASS}" ] ; then
     				echo "You have set NUMBER_OF_SHARES to ${NUMBER_OF_SHARES}"
 				echo "So you have to set values in each of"
 				for ((j=1; j<="${NUMBER_OF_SHARES}"; j++))
