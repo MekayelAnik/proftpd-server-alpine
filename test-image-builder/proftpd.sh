@@ -7,7 +7,7 @@
 	do
 		FTP_SHARE=FTP_SHARE_${i}
 		FTP_PASS=FTP_PASSWORD_${i}
-			if [ -z "${!FTP_SHARE}" ] && [ -z "${!FTP_PASS}" ] ; then
+			if [ -z "${!FTP_SHARE}" ] || [ -z "${!FTP_PASS}" ] ; then
     				echo "You have set NUMBER_OF_SHARES to ${NUMBER_OF_SHARES}"
 				echo "So you have to set values in each of"
 				for ((j=1; j<="${NUMBER_OF_SHARES}"; j++))
@@ -23,7 +23,7 @@
 				FTP_UID=FTP_SHARE_${i}_PUID
 	                	FTP_GID=FTP_SHARE_${i}_PGID
 				FTP_CHMOD=FTP_SHARE_${i}_CHMOD
-					if [ -z "${!FTP_UID}" ] || [ -z "${!FTP_GID}" ] ; then
+					if [ -z "${!FTP_UID}" ] && [ -z "${!FTP_GID}" ] ; then
 						FTP_UID=$(( 1100 + i ))
 						FTP_GID=$FTP_UID
                         			addgroup -g "${FTP_GID}" "${!FTP_SHARE}"
