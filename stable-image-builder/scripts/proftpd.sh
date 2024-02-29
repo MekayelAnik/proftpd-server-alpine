@@ -3,10 +3,10 @@
 # Show Conatiner Start Time
 # Check if Username & Password is set for Each FTP share
 # Create FTP User and assign Password, UID & GID from Environment variables for Multiple Users
-if [[ -z "$ALL_FTP_SHARES_UNDER_SINGLE_COMMON_GROUP}" ]]; then
+if [[ -z "${ALL_FTP_SHARES_UNDER_SINGLE_COMMON_GROUP}" ]]; then
 	ALL_FTP_SHARES_UNDER_SINGLE_COMMON_GROUP='false'
 fi
-if [[ -z "{$FTP_SHARE_COMMON_GID}" ]]; then
+if [[ -z "${FTP_SHARE_COMMON_GID}" ]]; then
 	FTP_SHARE_COMMON_GID='2121'
 fi
 if [[ -z "${FTP_SHARE_COMMON_GROUP_NAME}" ]]; then
@@ -45,7 +45,7 @@ for ((i = 1; i <= "${NUMBER_OF_SHARES}"; i++)); do
 		if [[ "$ALL_FTP_SHARES_UNDER_SINGLE_COMMON_GROUP" == 'true' ]]; then
 			if [[ -n "${FTP_SHARE_COMMON_GID}" ]]; then
 				if [[ "${FTP_SHARE_COMMON_GID}" =~ ^[0-9]+$ ]]; then
-					if getent group ${FTP_SHARE_COMMON_GID} >/dev/null 2>&1; then
+					if getent group "${FTP_SHARE_COMMON_GID}" >/dev/null 2>&1; then
 						:
 					else
 						addgroup --gid "${FTP_SHARE_COMMON_GID}" "${FTP_SHARE_COMMON_GROUP_NAME}"
