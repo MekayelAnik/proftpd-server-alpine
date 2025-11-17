@@ -32,15 +32,24 @@ if [[ "${ALL_FTP_SHARES_UNDER_SINGLE_COMMON_GROUP}" == 'true' ]] || [[ "${ALL_FT
 fi
 ######	Check if NUMBER_OF_SHARES is Valid	######
 if [[ "${NUMBER_OF_SHARES}" =~ ^[0-9]+$ ]] && [[ "${NUMBER_OF_SHARES}" -ge 1 ]] && [[ "${NUMBER_OF_SHARES}" -le 2147482647 ]]; then
+	echo "You have set NUMBER_OF_SHARES to ${NUMBER_OF_SHARES}. Creating ${NUMBER_OF_SHARES} FTP Shares with provided USERNAME(s) & PASSWORD(s)..."
 	for ((i = 1; i <= "${NUMBER_OF_SHARES}"; i++)); do
 		FTP_SHARE=FTP_SHARE_${i}
 		FTP_PASS=FTP_PASSWORD_${i}
 		if [[ -z "${!FTP_SHARE}" ]] || [[ -z "${!FTP_PASS}" ]]; then
-			echo "You have set NUMBER_OF_SHARES to ${NUMBER_OF_SHARES}"
-			echo "So you have to set values in each of"
-			for ((j = 1; j <= "${NUMBER_OF_SHARES}"; j++)); do
-				echo "FTP_SHARE_${j}, FTP_PASSWORD_${j}"
-			done
+			if [[ -z "${!FTP_SHARE}" ]]; then
+				echo "No value is set in ${FTP_SHARE}!"
+			fi
+			if [[ -z "${!FTP_PASS}" ]]; then
+				echo "No value is set in ${FTP_PASS}!"
+			fi
+			echo "So you MUST give input in:"
+			if [[ -z "${!FTP_SHARE}" ]]; then
+				echo "${FTP_SHARE}!"
+			fi
+			if [[ -z "${!FTP_PASS}" ]]; then
+				echo "${FTP_PASS}!"
+			fi
 			echo "Exitting..."
 			exit 1
 		fi
