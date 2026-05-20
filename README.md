@@ -1,5 +1,29 @@
 <h1>ProFTPD multi-arch image</h1>
 <img alt="ProFTPD" src="http://www.proftpd.org/proftpd.png">
+<!-- COMPONENT_VERSIONS_START -->
+<h2>Component Versions</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Source</th>
+      <th>Current Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ProFTPD</td>
+      <td><a href="https://pkgs.alpinelinux.org/package/edge/community/x86/proftpd">Alpine edge/community</a></td>
+      <td><code>1.3.8b-r15</code></td>
+    </tr>
+    <tr>
+      <td>Alpine Base</td>
+      <td><a href="https://hub.docker.com/_/alpine">alpine:edge</a></td>
+      <td><code>edge</code></td>
+    </tr>
+  </tbody>
+</table>
+<!-- COMPONENT_VERSIONS_END -->
 <p>This is an unofficial multi-aarch docker image of ProFTPD created for multiplatform support.This image creates a local FTP server to ficilitate client-side data transfer. Official Website: <a href="http://www.proftpd.org" rel="nofollow noopener">http://www.proftpd.org/</a>
 </p>
 <h2>The architectures supported by this image are:</h2>
@@ -33,6 +57,7 @@
     </tr>
   </tbody>
 </table>
+<!-- VERSION_TAGS_START -->
 <h2>Version Tags</h2>
 <p>This image provides various versions that are available via tags. Please read the <a href="http://www.proftpd.org/" rel="nofollow noopener">update information</a> carefully and exercise caution when using "older versions" tags as they tend to contain unfixed bugs. </p>
 <table>
@@ -47,15 +72,16 @@
     <tr>
       <td align="center">latest</td>
       <td align="center">✅</td>
-      <td>Stable "ProFTPD releases</td>
+      <td>Stable ProFTPD release</td>
     </tr>
     <tr>
-      <td align="center">1.3.8</td>
+      <td align="center">1.3.8b-r15</td>
       <td align="center">✅</td>
-      <td>Static "ProFTPD" build version 1.3.8</td>
+      <td>ProFTPD build version 1.3.8b-r15</td>
     </tr>
   </tbody>
 </table>
+<!-- VERSION_TAGS_END -->
 <h2>Running Image :</h2>
 <p>Here are some example snippets to help you get started creating a container.</p>
 <h3>docker-compose (recommended, <a href="https://itnext.io/a-beginners-guide-to-deploying-a-docker-application-to-production-using-docker-compose-de1feccd2893" rel="nofollow noopener">click here for more info</a>) </h3>
