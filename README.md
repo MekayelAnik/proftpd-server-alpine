@@ -14,7 +14,7 @@
     <tr>
       <td>ProFTPD</td>
       <td><a href="https://pkgs.alpinelinux.org/package/edge/community/x86/proftpd">Alpine edge/community</a></td>
-      <td><code>1.3.9b-r0</code></td>
+      <td><code>1.3.9b-r1</code></td>
     </tr>
     <tr>
       <td>Alpine Base</td>
@@ -75,9 +75,9 @@
       <td>Stable ProFTPD release</td>
     </tr>
     <tr>
-      <td align="center">1.3.9b-r0</td>
+      <td align="center">1.3.9b-r1</td>
       <td align="center">✅</td>
-      <td>ProFTPD build version 1.3.9b-r0</td>
+      <td>ProFTPD build version 1.3.9b-r1</td>
     </tr>
   </tbody>
 </table>
