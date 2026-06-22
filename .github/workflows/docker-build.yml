@@ -148,7 +148,7 @@ jobs:
           echo "level=$LEVEL" >> "$GITHUB_OUTPUT"
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Fetch proftpd version from Alpine APKINDEX
         id: fetch-proftpd
@@ -423,7 +423,7 @@ jobs:
           df -h /
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup build environment
         uses: ./.github/actions/setup-build-env
@@ -579,7 +579,7 @@ jobs:
 
       - name: Checkout
         if: steps.check-digests.outputs.has_digests == 'true'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup build environment
         if: steps.check-digests.outputs.has_digests == 'true'
@@ -736,7 +736,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup build environment
         uses: ./.github/actions/setup-build-env
@@ -791,7 +791,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup build environment
         uses: ./.github/actions/setup-build-env
@@ -883,7 +883,7 @@ jobs:
 
     steps:
       - name: Checkout pipeline-state branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: pipeline-state
           fetch-depth: 1
@@ -951,7 +951,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -996,7 +996,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -1056,7 +1056,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: main
 
